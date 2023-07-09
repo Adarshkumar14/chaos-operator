@@ -234,6 +234,8 @@ type ProbeAttributes struct {
 	PromProbeInputs *PromProbeInputs `json:"promProbe/inputs,omitempty"`
 	// inputs needed for the SLO probe
 	SLOProbeInputs *SLOProbeInputs `json:"sloProbe/inputs,omitempty"`
+	// inputs needed for the Dynatrace probe
+	DynatraceProbeInputs *DynatraceProbeInputs `json:"dynatraceProbe/inputs,omitempty"`
 	// RunProperty contains timeout, retry and interval for the probe
 	RunProperties RunProperty `json:"runProperties"`
 	// mode for k8s probe
@@ -336,6 +338,14 @@ type SLOProbeInputs struct {
 	SLOSourceMetadata SLOSourceMetadata `json:"sloSourceMetadata"`
 	// Comparator check for the correctness of the probe output
 	Comparator ComparatorInfo `json:"comparator"`
+}
+
+type DynatraceProbeInputs struct {
+	DynatraceEndpoint        string `json:"dynatraceEndPoint"`
+	DynatraceMetricsSelector string `json:"dynatraceMetricsSelector"`
+	DynatraceEntitySelector  string `json:"dynatraceEntitySelector"`
+	TimeFrame                string `json:"timeFrame"`
+	APITokenSecret           string `json:"apiTokenSecret"`
 }
 
 // EvaluationWindow is the time period for which the SLO probe will work
