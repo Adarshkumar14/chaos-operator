@@ -2959,6 +2959,28 @@ spec:
                                 properties:
                                   apiTokenSecret:
                                     type: string
+                                  comparator:
+                                    description: Comparator check for the correctness
+                                      of the probe output
+                                    properties:
+                                      criteria:
+                                        description: Criteria for matching data it
+                                          supports >=, <=, ==, >, <, != for int and
+                                          float it supports equal, notEqual, contains
+                                          for string
+                                        type: string
+                                      type:
+                                        description: Type of data it can be int, float,
+                                          string
+                                        type: string
+                                      value:
+                                        description: Value contains relative value
+                                          for criteria
+                                        type: string
+                                    required:
+                                    - criteria
+                                    - value
+                                    type: object
                                   dynatraceEndPoint:
                                     type: string
                                   dynatraceEntitySelector:
@@ -2969,6 +2991,7 @@ spec:
                                     type: string
                                 required:
                                 - apiTokenSecret
+                                - comparator
                                 - dynatraceEndPoint
                                 - dynatraceEntitySelector
                                 - dynatraceMetricsSelector

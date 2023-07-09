@@ -346,6 +346,8 @@ type DynatraceProbeInputs struct {
 	DynatraceEntitySelector  string `json:"dynatraceEntitySelector"`
 	TimeFrame                string `json:"timeFrame"`
 	APITokenSecret           string `json:"apiTokenSecret"`
+	// Comparator check for the correctness of the probe output
+	Comparator ComparatorInfo `json:"comparator"`
 }
 
 // EvaluationWindow is the time period for which the SLO probe will work
